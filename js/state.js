@@ -1,9 +1,9 @@
 import{getProduct}from"./data/products.js";
 import{selection}from"./selectors.js";
 const saved=(()=>{try{return JSON.parse(localStorage.getItem("pac"))||{}}catch(e){return{}}})();
-export const initialState={view:"home",mode:saved.mode||"retail",nav:false,cat:"all",search:"",sel:{},hub:"kimana",err:"",
+export const initialState={view:"home",mode:saved.mode||"retail",theme:saved.theme==="dark"?"dark":"light",nav:false,cat:"all",search:"",sel:{},hub:"kimana",err:"",
 ws:{org:"",contact:"",type:"School",hub:"",freq:"One-off",notes:"",lines:[{p:"maize",s:50,q:10}],...(saved.ws||{})}};
-export const persist=s=>{try{localStorage.setItem("pac",JSON.stringify({mode:s.mode,ws:s.ws}))}catch(e){}};
+export const persist=s=>{try{localStorage.setItem("pac",JSON.stringify({mode:s.mode,theme:s.theme,ws:s.ws}))}catch(e){}};
 const clamp=(n,a,b)=>Math.min(b,Math.max(a,n));
 const patchLine=(ws,i,f)=>({...ws,lines:ws.lines.map((l,j)=>j===i?f(l):l)});
 const fitSize=l=>{const p=getProduct(l.p);return p.sizes.includes(l.s)?l:{...l,s:p.sizes[p.sizes.length-1]}};
@@ -11,6 +11,7 @@ export function reducer(s,a){switch(a.type){
 case"ROUTE":return{...s,view:a.name,nav:false};
 case"SET_MODE":return{...s,mode:a.mode,sel:{}};
 case"TOGGLE_NAV":return{...s,nav:!s.nav};
+case"TOGGLE_THEME":return{...s,theme:s.theme==="dark"?"light":"dark"};
 case"SET_CATEGORY":return{...s,cat:a.cat};
 case"SET_SEARCH":return{...s,search:a.q};
 case"SELECT_SIZE":{const p=getProduct(a.id);return{...s,sel:{...s.sel,[p.id]:{...selection(s,p),s:a.size}}}}

@@ -1,17 +1,24 @@
-*{box-sizing:border-box}
-html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
-body{margin:0;font:400 16px/1.55 var(--font);background:var(--bg);color:var(--text);padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#fff;z-index:40}
-a{color:inherit;text-decoration:none}
-button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-h1,h2,h3,p{margin:0}h1,h2,h3{color:var(--g900);line-height:1.12}
-h1{font-size:clamp(2.1rem,8vw,3.75rem);font-weight:700;letter-spacing:-.02em}
-h2{font-size:clamp(1.5rem,5vw,2.1rem)}h3{font-size:1.1rem}
-.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-@media(min-width:768px){.wrap{padding:0 48px}}
-.btn{display:inline-block;text-align:center;border:2px solid var(--g900);background:var(--g900);color:#fff;border-radius:12px;padding:14px 24px;font-weight:600;transition:background .15s}
-.btn:hover{background:var(--g700)}.btn.alt{background:transparent;color:var(--g900)}.btn.alt:hover{background:var(--g50)}
-.btn.gold{background:var(--gold);border-color:var(--gold);color:#2b2b2b}.btn.block{display:block;width:100%}
-mark{background:var(--gold);color:#2b2b2b;padding:0 .18em;border-radius:8px}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+*{box-sizing:border-box}html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{margin:0;font:400 .875rem/1.7 var(--fb);background:var(--bg);color:var(--text);padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hdr);z-index:40}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:3px solid var(--a);outline-offset:2px}
+h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--fh);font-weight:600;color:var(--text);line-height:1.18}
+h1{font-size:clamp(1.7rem,4.2vw,2.35rem);letter-spacing:-.01em}h2{font-size:clamp(1.3rem,3vw,1.65rem)}h3{font-size:1rem}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}@media(min-width:768px){.wrap{padding:0 48px}}
+.btn{display:inline-block;text-align:center;border:1.5px solid var(--p);background:var(--p);color:var(--on-p);border-radius:999px;padding:12px 24px;font-weight:700;font-size:.8125rem;transition:background .2s,transform .2s,box-shadow .2s}
+.btn:hover{background:var(--pd);border-color:var(--pd);transform:translateY(-1px);box-shadow:0 6px 16px rgba(60,40,20,.18)}
+.btn.alt{background:transparent;color:var(--p)}.btn.alt:hover{background:var(--tint);color:var(--p)}
+.btn.gold{background:var(--a);border-color:var(--a);color:var(--on-a)}.btn.block{display:block;width:100%}
+/* loader */
+#loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-content:center;justify-items:center;gap:18px;transition:opacity .5s,visibility .5s}#loader.done{opacity:0;visibility:hidden}
+.ld-mark{width:56px;height:56px;border-radius:50%;background:var(--p);color:var(--on-p);display:grid;place-items:center;font:600 1.4rem var(--fh);animation:pulse 1.4s ease-in-out infinite}
+.ld-name{font:600 1rem var(--fh)}.ld-bar{width:140px;height:3px;border-radius:3px;background:var(--border);overflow:hidden}
+.ld-bar i{display:block;height:100%;background:var(--a);width:0;animation:load 1.4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.08)}}@keyframes load{0%{width:0;margin-left:0}50%{width:70%}100%{width:0;margin-left:100%}}
+/* scroll reveal (only when JS is on) */
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform .7s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv .pimg-i{transform:scale(1.15);transition:transform 1.2s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}.js .rv.in .pimg-i{transform:none}
+html.tt *,html.tt *::before,html.tt *::after{transition:background-color .4s,color .4s,border-color .4s,box-shadow .4s!important}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.js .rv{opacity:1;transform:none}}
