@@ -1,0 +1,6 @@
+:root{color-scheme:light;
+--g900:#1b4332;--g700:#2d6a4f;--g500:#40916c;--g200:#b7e4c7;--g100:#d8f3dc;--g50:#eef7f1;
+--gold:#d4a373;--gold-d:#b98355;--wash:#f6ebdd;--text:#2b2b2b;--bg:#f8f9fa;--surface:#fff;--border:#dfe3e0;--err:#b3261e;--wa:#25d366;
+--r:16px;--sh:0 1px 2px rgba(0,0,0,.05),0 8px 24px rgba(27,67,50,.08);
+--font:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+/* breakpoints (mobile-first): 480px sm, 768px md, 1024px lg */

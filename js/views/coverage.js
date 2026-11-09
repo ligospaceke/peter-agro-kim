@@ -1,0 +1,2 @@
+import{CoverageMap,HubList,coverageEvents}from"../components/CoverageMap.js";
+export const coverage={title:"Where We Deliver",render:s=>`<div class="wrap page"><h1 style="font-size:clamp(2rem,6vw,2.75rem)">Where We Deliver</h1><p class="intro">Reliable supply across Kajiado South. Tap a hub to see your options.</p><div class="two">${CoverageMap(s)}${HubList(s)}</div></div>`,events:coverageEvents};

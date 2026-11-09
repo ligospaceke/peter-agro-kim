@@ -1,0 +1,24 @@
+.hero{display:grid;gap:28px;padding-top:28px;padding-bottom:36px}
+@media(min-width:768px){.hero{grid-template-columns:1.05fr .95fr;align-items:center;gap:56px;padding-top:64px;padding-bottom:64px}}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g700)}
+.lead{font-size:18px;color:#444;max-width:480px;margin:16px 0 24px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}.cta .btn{flex:1 1 170px}@media(min-width:768px){.cta .btn{flex:0 0 auto}}
+.panel{background:linear-gradient(135deg,var(--g100),var(--wash));border-radius:28px;padding:18px}
+.sec{padding:36px 0}.tint{background:var(--g50)}
+.sechead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:18px}.sechead a{color:var(--g700);font-weight:700}
+.grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:480px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.grid.g3{grid-template-columns:repeat(3,1fr)}}
+.grid.g4{grid-template-columns:repeat(2,1fr)}@media(min-width:768px){.grid.g4{grid-template-columns:repeat(4,1fr)}}
+.ico{width:44px;height:44px;border-radius:12px;background:var(--g100);display:grid;place-items:center;font-size:22px}.adv p{font-size:14px;color:#555}
+.cat{border:1.5px solid var(--g200);border-bottom:4px solid var(--gold);background:#fff;border-radius:var(--r);padding:20px 16px;text-align:left;display:grid;gap:6px;min-height:124px;color:var(--g900)}
+.cat .e{font-size:34px}.cat b{font-size:17px}.cat small{color:var(--g700);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:10px}.chips span{background:var(--g100);color:var(--g900);padding:10px 18px;border-radius:999px;font-weight:600}
+.band{background:linear-gradient(135deg,var(--g900),var(--g700));color:#fff;border-radius:24px;padding:32px 24px;display:grid;gap:16px}.band h2{color:#fff}
+@media(min-width:768px){.band{grid-template-columns:1fr auto;align-items:center;padding:40px}}
+.page{padding-top:28px;padding-bottom:40px}.page .intro{margin:8px 0 20px;color:#555}
+.search{margin:0 0 12px}
+.two{display:grid;gap:24px}@media(min-width:1024px){.two{grid-template-columns:1.5fr 1fr;align-items:start}}
+.cols{display:grid;gap:14px}@media(min-width:480px){.cols{grid-template-columns:1fr 1fr}}
+.form{display:grid;gap:16px}.form h2{font-size:1.2rem;margin-top:8px}
+.wholesale{padding-bottom:110px}@media(min-width:1024px){.wholesale{padding-bottom:40px}}
