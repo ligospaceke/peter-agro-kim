@@ -22,3 +22,6 @@ h1{font-size:clamp(1.7rem,4.2vw,2.35rem);letter-spacing:-.01em}h2{font-size:clam
 .js .rv .pimg-i{transform:scale(1.15);transition:transform 1.2s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}.js .rv.in .pimg-i{transform:none}
 html.tt *,html.tt *::before,html.tt *::after{transition:background-color .4s,color .4s,border-color .4s,box-shadow .4s!important}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.js .rv{opacity:1;transform:none}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:8px;z-index:200;background:var(--p);color:var(--on-p);padding:10px 16px;border-radius:8px;font-weight:700}.skip:focus{left:8px}
+body.lock{overflow:hidden}main:focus{outline:none}

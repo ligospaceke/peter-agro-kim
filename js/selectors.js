@@ -1,4 +1,14 @@
-import{PRODUCTS}from"./data/products.js";
+import{PRODUCTS,CATEGORY_LABEL}from"./data/products.js";
 export const selection=(s,p)=>s.sel[p.id]||{s:s.mode==="wholesale"?p.sizes[p.sizes.length-1]:p.sizes[0],q:1};
-export const visibleProducts=s=>PRODUCTS.filter(p=>(s.cat==="all"||p.cat===s.cat)&&p.name.toLowerCase().includes(s.search.trim().toLowerCase()));
+const lev=(a,b)=>{const d=[...Array(b.length+1).keys()];for(let i=1;i<=a.length;i++){let p=d[0];d[0]=i;for(let j=1;j<=b.length;j++){const t=d[j];d[j]=Math.min(d[j]+1,d[j-1]+1,p+(a[i-1]===b[j-1]?0:1));p=t}}return d[b.length]};
+const swap=(a,b)=>a.length===b.length&&[...a].some((c,i)=>i<a.length-1&&a.slice(0,i)+a[i+1]+a[i]+a.slice(i+2)===b);
+const toks=q=>q.toLowerCase().split(/[^a-z']+/).filter(Boolean);
+const wordsOf=p=>toks(`${p.name} ${CATEGORY_LABEL[p.cat]} ${(p.syn||[]).join(" ")}`);
+export const matchProduct=(p,q)=>{const t=toks(q);if(!t.length)return true;const w=wordsOf(p);return t.every(x=>w.some(y=>y.startsWith(x)||(x.length>=5&&y.length>=5&&(lev(y.slice(0,x.length),x)<=1||swap(y.slice(0,x.length),x)))))};
+export const searchProducts=(q,limit=6)=>q.trim().length<2?[]:PRODUCTS.filter(p=>matchProduct(p,q)).slice(0,limit);
+export const filteredProducts=s=>PRODUCTS.filter(p=>(s.cat==="all"||p.cat===s.cat)&&matchProduct(p,s.search)&&(!s.sizes.length||s.sizes.some(z=>p.sizes.includes(z))));
+export const hasFilters=s=>s.cat!=="all"||s.sizes.length>0||s.search.trim()!=="";
+export const isSaved=(s,id)=>s.saved.includes(id);
+export const basketCount=s=>s.basket.reduce((a,l)=>a+l.q,0);
+export const basketKg=s=>s.basket.reduce((a,l)=>a+l.s*l.q,0);
 export const totalKg=s=>s.ws.lines.reduce((a,l)=>a+l.s*l.q,0);
